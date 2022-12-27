@@ -5,12 +5,6 @@
 //  Created by Alex Karamanets on 19.12.2022.
 //
 
-/*
- Tasks 🦉
- 1. Add logotype 📌
- 2. Mode adapt   📌
- */
-
 import SwiftUI
 
 struct AddExpenseView: View {
@@ -86,7 +80,7 @@ struct AddExpenseView: View {
         }
     }
 }
-
+//                    📌
 struct AddExpenseView_Previews: PreviewProvider {
     static var previews: some View {
         AddExpenseView(expenses: Expenses())

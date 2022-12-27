@@ -12,6 +12,7 @@
 		2C64B3B2295032E700E8C770 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C64B3B1295032E700E8C770 /* Assets.xcassets */; };
 		2C64B3B5295032E700E8C770 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C64B3B4295032E700E8C770 /* Preview Assets.xcassets */; };
 		2C64B3BC2950350800E8C770 /* AddExpenseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64B3BB2950350800E8C770 /* AddExpenseView.swift */; };
+		2CB4140E2959DAF4009B0D13 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4140D2959DAF4009B0D13 /* Data.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -21,6 +22,7 @@
 		2C64B3B1295032E700E8C770 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2C64B3B4295032E700E8C770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C64B3BB2950350800E8C770 /* AddExpenseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddExpenseView.swift; sourceTree = "<group>"; };
+		2CB4140D2959DAF4009B0D13 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +58,7 @@
 				2C64B3AD295032E600E8C770 /* ExpensesListApp.swift */,
 				2C64B3AF295032E600E8C770 /* Main.swift */,
 				2C64B3BB2950350800E8C770 /* AddExpenseView.swift */,
+				2CB4140D2959DAF4009B0D13 /* Data.swift */,
 				2C64B3B1295032E700E8C770 /* Assets.xcassets */,
 				2C64B3B3295032E700E8C770 /* Preview Content */,
 			);
@@ -143,6 +146,7 @@
 				2C64B3BC2950350800E8C770 /* AddExpenseView.swift in Sources */,
 				2C64B3B0295032E600E8C770 /* Main.swift in Sources */,
 				2C64B3AE295032E600E8C770 /* ExpensesListApp.swift in Sources */,
+				2CB4140E2959DAF4009B0D13 /* Data.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
