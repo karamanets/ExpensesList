@@ -7,17 +7,7 @@
 
 import SwiftUI
 
-struct Expense: Identifiable, Codable {
-    
-    var id      = UUID()
-    var name    : String
-    var type    : String
-    var amound  : Int
-    var reaction: String
-    
-}
-
-class Expenses: ObservableObject {
+class ExpensesViewModel: ObservableObject {
     
     @Published var items = [Expense]() {
         didSet {

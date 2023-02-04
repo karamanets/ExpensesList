@@ -7,19 +7,18 @@
 
 import SwiftUI
 
-struct AddExpenseView: View {
+struct AddView: View {
     
-    @ObservedObject var expenses: Expenses
-    
-    @Environment(\.dismiss) var  goBack
-    
+    @ObservedObject var expenses: ExpensesViewModel
+
     @State private var name   = ""
     @State private var type   = "Personal"
-    @State private var amound = ""
+    @State private var amount = ""
+    @State private var types  = ["Personal", "Business", "Work", "Home", "Else"]
+    @State private var reactions = Components.emoji
     @State private var reaction = "📌"
     
-    @State private var types = ["Personal", "Business", "Work", "Home", "Else"]
-    @State private var reactions = ["😀", "😅", "😏", "☹️", "😭", "🛑", "🙉", "🔥", "📌", "🪓", "😇", "🤪", "🤩", "🥳", "😖", "😞", "🫣", "🤔", "🤡"]
+    @Environment(\.dismiss) var  goBack
     
     var body: some View {
         NavigationStack{
@@ -39,7 +38,7 @@ struct AddExpenseView: View {
                     Text("Enter the type")
                 }
                 Section {
-                    TextField("💸", text: $amound)
+                    TextField("💸", text: $amount)
                 } header: {
                     Text("Enter the amound")
                 }
@@ -66,8 +65,8 @@ struct AddExpenseView: View {
                 }
                 ToolbarItem(placement: ToolbarItemPlacement .navigationBarTrailing) {
                     Button {
-                        if let actualAmound = Int(self.amound) {
-                            let item = Expense(name: self.name, type: self.type, amound: actualAmound, reaction: self.reaction)
+                        if let actualAmound = Int(self.amount) {
+                            let item = Expense(name: self.name, type: self.type, amount: actualAmound, reaction: self.reaction)
                             self.expenses.items.append(item)
                             goBack()
                         }
@@ -80,9 +79,9 @@ struct AddExpenseView: View {
         }
     }
 }
-//                    📌
-struct AddExpenseView_Previews: PreviewProvider {
+//                     📌
+struct AddView_Previews: PreviewProvider {
     static var previews: some View {
-        AddExpenseView(expenses: Expenses())
+        AddView(expenses: ExpensesViewModel())
     }
 }

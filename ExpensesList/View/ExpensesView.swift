@@ -7,10 +7,10 @@
 
 import SwiftUI
 
-struct Main: View {
+struct ExpensesView: View {
     
+    @StateObject var expenses  = ExpensesViewModel()
     @State private var sheetLink = false
-    @ObservedObject var expenses  = Expenses()
     
     var body: some View {
         
@@ -28,8 +28,7 @@ struct Main: View {
                         Text("\(item.reaction)")
                             .padding(.trailing, 15)
                             
-                        
-                        Text("\(item.amound)")
+                        Text("\(item.amount)")
                             .font(.system(size: 22) .italic() .bold())
                     }
                 }
@@ -40,7 +39,7 @@ struct Main: View {
                 }
             }
             .navigationTitle("Expenses")
-            .sheet(isPresented: $sheetLink) { AddExpenseView(expenses: self.expenses) }
+            .sheet(isPresented: $sheetLink) { AddView(expenses: self.expenses) }
             .toolbar {
                 Button {
                     self.sheetLink = true
@@ -54,6 +53,6 @@ struct Main: View {
 //                    📌
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
-        Main()
+        ExpensesView()
     }
 }
