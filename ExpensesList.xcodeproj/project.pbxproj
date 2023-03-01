@@ -14,6 +14,8 @@
 		2C64B3BC2950350800E8C770 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64B3BB2950350800E8C770 /* AddView.swift */; };
 		2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */; };
 		2C663D51298EA817001DFDC8 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D50298EA817001DFDC8 /* Components.swift */; };
+		2C92724929AFAE1A004E64BB /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724829AFAE1A004E64BB /* AddViewModel.swift */; };
+		2C92724B29AFAE43004E64BB /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724A29AFAE43004E64BB /* AddModel.swift */; };
 		2CB4140E2959DAF4009B0D13 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,6 +29,8 @@
 		2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
 		2C663D50298EA817001DFDC8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
 		2C663D53298EA98E001DFDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2C92724829AFAE1A004E64BB /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
+		2C92724A29AFAE43004E64BB /* AddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
 		2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -60,14 +64,14 @@
 		2C64B3AC295032E600E8C770 /* ExpensesList */ = {
 			isa = PBXGroup;
 			children = (
-				2C663D53298EA98E001DFDC8 /* Info.plist */,
 				2C64B3AD295032E600E8C770 /* ExpensesListApp.swift */,
 				2C663D4B298EA536001DFDC8 /* View */,
 				2C663D4C298EA574001DFDC8 /* ViewModel */,
 				2C663D4F298EA619001DFDC8 /* Model */,
 				2C663D52298EA81C001DFDC8 /* Components */,
-				2C64B3B1295032E700E8C770 /* Assets.xcassets */,
 				2C64B3B3295032E700E8C770 /* Preview Content */,
+				2C64B3B1295032E700E8C770 /* Assets.xcassets */,
+				2C663D53298EA98E001DFDC8 /* Info.plist */,
 			);
 			path = ExpensesList;
 			sourceTree = "<group>";
@@ -93,6 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */,
+				2C92724829AFAE1A004E64BB /* AddViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -101,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */,
+				2C92724A29AFAE43004E64BB /* AddModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -185,6 +191,8 @@
 			files = (
 				2C64B3BC2950350800E8C770 /* AddView.swift in Sources */,
 				2C663D51298EA817001DFDC8 /* Components.swift in Sources */,
+				2C92724929AFAE1A004E64BB /* AddViewModel.swift in Sources */,
+				2C92724B29AFAE43004E64BB /* AddModel.swift in Sources */,
 				2C64B3B0295032E600E8C770 /* ExpensesView.swift in Sources */,
 				2C64B3AE295032E600E8C770 /* ExpensesListApp.swift in Sources */,
 				2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */,

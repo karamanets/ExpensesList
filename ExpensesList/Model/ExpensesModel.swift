@@ -8,7 +8,7 @@
 import Foundation
 
 
-struct Expense: Identifiable, Codable {
+struct ExpensesModel: Identifiable, Codable {
     
     var id      = UUID()
     var name    : String
@@ -16,3 +16,5 @@ struct Expense: Identifiable, Codable {
     var amount  : Int
     var reaction: String
 }
+
+

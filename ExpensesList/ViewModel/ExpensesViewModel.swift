@@ -9,7 +9,7 @@ import SwiftUI
 
 class ExpensesViewModel: ObservableObject {
     
-    @Published var items = [Expense]() {
+    @Published var items = [ExpensesModel]() {
         didSet {
             let encoder = JSONEncoder()
             
@@ -21,7 +21,7 @@ class ExpensesViewModel: ObservableObject {
     init() {
         if let item = UserDefaults.standard.data(forKey: "itemsData") {
             let decoder = JSONDecoder()
-            if let data = try? decoder.decode([Expense].self, from: item) {
+            if let data = try? decoder.decode([ExpensesModel].self, from: item) {
                 self.items = data
             }
         }

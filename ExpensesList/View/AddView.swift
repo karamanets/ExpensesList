@@ -10,27 +10,20 @@ import SwiftUI
 struct AddView: View {
     
     @ObservedObject var expenses: ExpensesViewModel
-
-    @State private var name   = ""
-    @State private var type   = "Personal"
-    @State private var amount = ""
-    @State private var types  = ["Personal", "Business", "Work", "Home", "Else"]
-    @State private var reactions = Components.emoji
-    @State private var reaction = "📌"
-    
+    @StateObject var vm = AddViewModel()
     @Environment(\.dismiss) var  goBack
     
     var body: some View {
         NavigationStack{
             Form {
                 Section {
-                    TextField("📜", text: $name)
+                    TextField("📜", text: $vm.expense.name)
                 } header: {
                     Text("Enter the name")
                 }
                 Section {
-                    Picker("📌", selection: $type) {
-                        ForEach(types, id: \.self) {
+                    Picker("📌", selection: $vm.expense.type) {
+                        ForEach(vm.expense.types, id: \.self) {
                             Text($0)
                         }
                     }
@@ -38,13 +31,13 @@ struct AddView: View {
                     Text("Enter the type")
                 }
                 Section {
-                    TextField("💸", text: $amount)
+                    TextField("💸", text: $vm.expense.amount)
                 } header: {
                     Text("Enter the amound")
                 }
                 Section {
-                    Picker("😎", selection: $reaction) {
-                        ForEach(reactions, id: \.self){
+                    Picker("😎", selection: $vm.expense.reaction) {
+                        ForEach(vm.expense.reactions, id: \.self){
                             Text("\($0)")
                         }
                     }
@@ -65,8 +58,8 @@ struct AddView: View {
                 }
                 ToolbarItem(placement: ToolbarItemPlacement .navigationBarTrailing) {
                     Button {
-                        if let actualAmound = Int(self.amount) {
-                            let item = Expense(name: self.name, type: self.type, amount: actualAmound, reaction: self.reaction)
+                        if let actualAmount = Int(vm.expense.amount) {
+                            let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount, reaction: vm.expense.reaction)
                             self.expenses.items.append(item)
                             goBack()
                         }
