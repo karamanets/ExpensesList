@@ -14,12 +14,12 @@ class ExpensesViewModel: ObservableObject {
             let encoder = JSONEncoder()
             
             if let data = try? encoder.encode(items) {
-                UserDefaults.standard.set(data, forKey: "itemsData")
+                UserDefaults.standard.set(data, forKey: "items")
             }
         }
     }
     init() {
-        if let item = UserDefaults.standard.data(forKey: "itemsData") {
+        if let item = UserDefaults.standard.data(forKey: "items") {
             let decoder = JSONDecoder()
             if let data = try? decoder.decode([ExpensesModel].self, from: item) {
                 self.items = data

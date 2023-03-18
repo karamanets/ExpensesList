@@ -14,67 +14,63 @@ struct AddView: View {
     @Environment(\.dismiss) var  goBack
     
     var body: some View {
-        NavigationStack{
-            Form {
-                Section {
-                    TextField("📜", text: $vm.expense.name)
-                } header: {
-                    Text("Enter the name")
-                }
-                Section {
-                    Picker("📌", selection: $vm.expense.type) {
-                        ForEach(vm.expense.types, id: \.self) {
-                            Text($0)
+        VStack{
+            ScrollView {
+                VStack (spacing: 16) {
+                    VStack {
+                        Text("Enter the name")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        TextField("📜", text: $vm.expense.name)
+                            .modifier(TextFieldModifier(padding: 15))
+                    }
+                    VStack {
+                        Text("Enter the type")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        Picker("", selection: $vm.expense.type) {
+                            ForEach(vm.expense.types, id: \.self) {
+                                Text($0)
+                            }
                         }
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .modifier(TextFieldModifier(padding: 10))
                     }
-                } header: {
-                    Text("Enter the type")
-                }
-                Section {
-                    TextField("💸", text: $vm.expense.amount)
-                } header: {
-                    Text("Enter the amound")
-                }
-                Section {
-                    Picker("😎", selection: $vm.expense.reaction) {
-                        ForEach(vm.expense.reactions, id: \.self){
-                            Text("\($0)")
-                        }
+                    VStack {
+                        Text("Enter the amount")
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                        
+                        TextField("💸", text: $vm.expense.amount)
+                            .modifier(TextFieldModifier(padding: 15))
                     }
-                } header: {
-                    Text("Enter reaction")
-                }
-            }
-            .navigationTitle("Expense")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                ToolbarItem(placement: ToolbarItemPlacement .navigationBarLeading) {
-                    Button {
-                        goBack()
-                    } label: {
-                        Image(systemName: "arrow.uturn.backward")
-                            .font(.system(size: 20) .bold())
+                    ZStack {
+                        Text("Save")
+                            .modifier(TextFieldModifier(padding: 6))
+                        CustomAnimationView()
                     }
-                }
-                ToolbarItem(placement: ToolbarItemPlacement .navigationBarTrailing) {
-                    Button {
+                    .padding(.top, 90)
+                    .onTapGesture {
                         if let actualAmount = Int(vm.expense.amount) {
-                            let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount, reaction: vm.expense.reaction)
+                            let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount)
                             self.expenses.items.append(item)
                             goBack()
                         }
-                    } label: {
-                        Text("Save")
-                            .font(.system(size: 20) .bold())
                     }
                 }
+                .padding(.horizontal)
+                .padding(.top, 30)
             }
+            
         }
+        .scrollContentBackground(.hidden)
+        .toolbarBackground(.hidden, for: .navigationBar)
+        .background(getBackgrounds)
     }
 }
-//                     📌
+//                     🔱
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         AddView(expenses: ExpensesViewModel())
     }
 }
+

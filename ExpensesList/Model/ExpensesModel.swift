@@ -14,7 +14,6 @@ struct ExpensesModel: Identifiable, Codable {
     var name    : String
     var type    : String
     var amount  : Int
-    var reaction: String
 }
 
 

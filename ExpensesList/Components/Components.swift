@@ -6,8 +6,26 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct Components {
+struct TextFieldModifier: ViewModifier {
     
-   static var emoji = ["😀", "😅", "😏", "☹️", "😭", "🛑", "🙉", "🔥", "📌", "🪓", "😇", "🤪", "🤩", "🥳", "😖", "😞", "🫣", "🤔", "🤡"]
+    let padding: CGFloat
+    
+    func body(content: Content) -> some View {
+        content
+            .padding(.all, padding)
+            .padding(.horizontal)
+            .background(.purple)
+            .blendMode(.hardLight)
+            .cornerRadius(15)
+    }
+}
+
+var getBackgrounds: some View {
+    
+    LinearGradient(colors: [.purple, .blue, .blue, .purple],
+                   startPoint: .topLeading,
+                   endPoint: .bottomTrailing)
+    .ignoresSafeArea()
 }

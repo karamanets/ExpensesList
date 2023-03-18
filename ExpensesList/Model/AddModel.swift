@@ -13,6 +13,5 @@ struct AddModel {
     var type   = "Personal"
     var amount = ""
     var types  = ["Personal", "Business", "Work", "Home", "Else"]
-    var reactions = Components.emoji
-    var reaction = "📌"
+
 }
