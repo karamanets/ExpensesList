@@ -14,10 +14,13 @@
 		2C64B3B5295032E700E8C770 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2C64B3B4295032E700E8C770 /* Preview Assets.xcassets */; };
 		2C64B3BC2950350800E8C770 /* AddView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C64B3BB2950350800E8C770 /* AddView.swift */; };
 		2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */; };
-		2C663D51298EA817001DFDC8 /* Components.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D50298EA817001DFDC8 /* Components.swift */; };
+		2C663D51298EA817001DFDC8 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D50298EA817001DFDC8 /* TextFieldModifier.swift */; };
+		2C6FE71F29C743EF00ED98B4 /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FE71E29C743EF00ED98B4 /* Greeting.swift */; };
 		2C92724929AFAE1A004E64BB /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724829AFAE1A004E64BB /* AddViewModel.swift */; };
 		2C92724B29AFAE43004E64BB /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724A29AFAE43004E64BB /* AddModel.swift */; };
 		2CB4140E2959DAF4009B0D13 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */; };
+		2CDCF0E029C7A04600914E5B /* BackgroundColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCF0DF29C7A04600914E5B /* BackgroundColor.swift */; };
+		2CDCF0E229C7A0B200914E5B /* CustomPath.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CDCF0E129C7A0B200914E5B /* CustomPath.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,11 +32,14 @@
 		2C64B3B4295032E700E8C770 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2C64B3BB2950350800E8C770 /* AddView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddView.swift; sourceTree = "<group>"; };
 		2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesModel.swift; sourceTree = "<group>"; };
-		2C663D50298EA817001DFDC8 /* Components.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Components.swift; sourceTree = "<group>"; };
+		2C663D50298EA817001DFDC8 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		2C663D53298EA98E001DFDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		2C6FE71E29C743EF00ED98B4 /* Greeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greeting.swift; sourceTree = "<group>"; };
 		2C92724829AFAE1A004E64BB /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		2C92724A29AFAE43004E64BB /* AddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
 		2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
+		2CDCF0DF29C7A04600914E5B /* BackgroundColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BackgroundColor.swift; sourceTree = "<group>"; };
+		2CDCF0E129C7A0B200914E5B /* CustomPath.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPath.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +97,6 @@
 			children = (
 				2C64B3AF295032E600E8C770 /* ExpensesView.swift */,
 				2C64B3BB2950350800E8C770 /* AddView.swift */,
-				2C227BB129C6253700EE1822 /* CustomAnimationView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -117,7 +122,11 @@
 		2C663D52298EA81C001DFDC8 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				2C663D50298EA817001DFDC8 /* Components.swift */,
+				2C227BB129C6253700EE1822 /* CustomAnimationView.swift */,
+				2C663D50298EA817001DFDC8 /* TextFieldModifier.swift */,
+				2C6FE71E29C743EF00ED98B4 /* Greeting.swift */,
+				2CDCF0E129C7A0B200914E5B /* CustomPath.swift */,
+				2CDCF0DF29C7A04600914E5B /* BackgroundColor.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -192,14 +201,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2CDCF0E029C7A04600914E5B /* BackgroundColor.swift in Sources */,
 				2C227BB229C6253700EE1822 /* CustomAnimationView.swift in Sources */,
 				2C64B3BC2950350800E8C770 /* AddView.swift in Sources */,
-				2C663D51298EA817001DFDC8 /* Components.swift in Sources */,
+				2CDCF0E229C7A0B200914E5B /* CustomPath.swift in Sources */,
+				2C663D51298EA817001DFDC8 /* TextFieldModifier.swift in Sources */,
 				2C92724929AFAE1A004E64BB /* AddViewModel.swift in Sources */,
 				2C92724B29AFAE43004E64BB /* AddModel.swift in Sources */,
 				2C64B3B0295032E600E8C770 /* ExpensesView.swift in Sources */,
 				2C64B3AE295032E600E8C770 /* ExpensesListApp.swift in Sources */,
 				2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */,
+				2C6FE71F29C743EF00ED98B4 /* Greeting.swift in Sources */,
 				2CB4140E2959DAF4009B0D13 /* ExpensesViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -5,7 +5,6 @@
 //  Created by Alex Karamanets on 04.02.2023.
 //
 
-import Foundation
 import SwiftUI
 
 struct TextFieldModifier: ViewModifier {
@@ -20,12 +19,4 @@ struct TextFieldModifier: ViewModifier {
             .blendMode(.hardLight)
             .cornerRadius(15)
     }
-}
-
-var getBackgrounds: some View {
-    
-    LinearGradient(colors: [.purple, .blue, .blue, .purple],
-                   startPoint: .topLeading,
-                   endPoint: .bottomTrailing)
-    .ignoresSafeArea()
 }

@@ -44,23 +44,32 @@ struct AddView: View {
                             .modifier(TextFieldModifier(padding: 15))
                     }
                     ZStack {
-                        Text("Save")
-                            .modifier(TextFieldModifier(padding: 6))
+                        Button {
+                            if let actualAmount = Int(vm.expense.amount) {
+                                let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount)
+                                self.expenses.items.append(item)
+                                goBack()
+                            }
+                        } label: {
+                            ZStack {
+                                Circle()
+                                    .fill(Color.purple)
+                                    .frame(width: 70, height: 70)
+                                    .overlay {
+                                        Circle()
+                                            .stroke(Color.pink, lineWidth: 0.6)
+                                    }
+                                Text("Save")
+                                    .foregroundColor(.black)
+                            }
+                        }
                         CustomAnimationView()
                     }
                     .padding(.top, 90)
-                    .onTapGesture {
-                        if let actualAmount = Int(vm.expense.amount) {
-                            let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount)
-                            self.expenses.items.append(item)
-                            goBack()
-                        }
-                    }
                 }
                 .padding(.horizontal)
                 .padding(.top, 30)
             }
-            
         }
         .scrollContentBackground(.hidden)
         .toolbarBackground(.hidden, for: .navigationBar)
