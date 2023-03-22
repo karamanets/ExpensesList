@@ -13,7 +13,7 @@ ____
   
   
 <!--- GIF iPnone ---> 
-<p><img align="right" src="https://github.com/karamanets/ExpensesList/blob/main/icons/Expenses.gif" width="300" height="600" /></p>
+<p><img align="right" src="https://github.com/karamanets/ExpensesList/blob/main/icons/logoGif.gif" width="300" height="600" /></p>
   
   
 <!--- Tag header --->
@@ -32,7 +32,7 @@ ____
   
 >### Expense sheet that saves positions  
 >### You can add a price name and category
->### 
+>### Contains a text shadow animation with blending on the screen saver and an animation on the save button from the triangle cycle
   
 
 <!--- Gamepad ---> 
