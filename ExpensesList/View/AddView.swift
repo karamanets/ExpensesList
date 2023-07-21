@@ -9,8 +9,10 @@ import SwiftUI
 
 struct AddView: View {
     
-    @ObservedObject var expenses: ExpensesViewModel
     @StateObject var vm = AddViewModel()
+    
+    @ObservedObject var expenses: ExpensesViewModel
+    
     @Environment(\.dismiss) var  goBack
     
     var body: some View {
@@ -46,7 +48,9 @@ struct AddView: View {
                     ZStack {
                         Button {
                             if let actualAmount = Int(vm.expense.amount) {
-                                let item = ExpensesModel(name: vm.expense.name, type: vm.expense.type, amount: actualAmount)
+                                let item = ExpensesModel(name: vm.expense.name,
+                                                         type: vm.expense.type,
+                                                         amount: actualAmount)
                                 self.expenses.items.append(item)
                                 goBack()
                             }

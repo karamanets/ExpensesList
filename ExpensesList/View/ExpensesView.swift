@@ -10,6 +10,7 @@ import SwiftUI
 struct ExpensesView: View {
     
     @StateObject var expenses  = ExpensesViewModel()
+    
     @State private var showSheet = false
     
     private var listIsEmpty: Bool {
@@ -57,6 +58,7 @@ struct ExpensesView: View {
                         }
                     }
                 }
+                .transition(.move(edge: .trailing))
             } else {
                 VStack {
                     Greeting()
@@ -66,9 +68,11 @@ struct ExpensesView: View {
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                         .background(getBackgrounds)
                 }
+                .transition(.move(edge: .leading))
             }
         }
         .sheet(isPresented: $showSheet) { AddView(expenses: self.expenses) }
+        .animation(.spring(), value: listIsEmpty)
     }
 }
 //                    🔱
