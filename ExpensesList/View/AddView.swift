@@ -77,7 +77,7 @@ struct AddView: View {
         }
         .scrollContentBackground(.hidden)
         .toolbarBackground(.hidden, for: .navigationBar)
-        .background(getBackgrounds)
+        .background{ BackgroundMove() }
     }
 }
 //                     🔱

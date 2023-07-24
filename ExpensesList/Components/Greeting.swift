@@ -13,7 +13,6 @@ struct Greeting: View {
     @State private var shadow2: CGFloat = 10
     @State private var shadow3: CGFloat = 20
     
-    
     var body: some View {
         ZStack {
             Text("Add Expense")
@@ -29,7 +28,7 @@ struct Greeting: View {
                 .shadow(color: .purple, radius: 30, x: shadow1, y: shadow2)
         }
         .onAppear {
-            withAnimation(.easeInOut(duration: 2).repeatForever()) {
+            withAnimation(.easeInOut(duration: 2.5).repeatForever()) {
                 shadow1 = 10
                 shadow2 = -10
                 shadow3 = 5

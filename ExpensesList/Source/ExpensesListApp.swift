@@ -12,6 +12,7 @@ struct ExpensesListApp: App {
     var body: some Scene {
         WindowGroup {
             ExpensesView()
+                .preferredColorScheme(.dark)
         }
     }
 }

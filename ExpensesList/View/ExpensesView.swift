@@ -7,6 +7,11 @@
 
 import SwiftUI
 
+//MARK: Tasks
+//1 STOP moving View when open keyboard
+//2 Change text style and icon style
+//3 Add adding to able move
+
 struct ExpensesView: View {
     
     @StateObject var expenses  = ExpensesViewModel()
@@ -18,7 +23,7 @@ struct ExpensesView: View {
     }
     
     var body: some View {
-        VStack {
+        Group {
             if listIsEmpty {
                 NavigationStack {
                     List {
@@ -35,6 +40,7 @@ struct ExpensesView: View {
                                     .font(.system(size: 22) .italic() .bold())
                             }
                         }
+                        
                         .onDelete { item in
                             let revers = Array(expenses.items.reversed())
                             let collect = Set(item.map { revers[$0].id })
@@ -44,9 +50,10 @@ struct ExpensesView: View {
                             .blendMode(.hardLight)
                         )
                         .listRowSeparatorTint(Color.red)
+                        
                     }
-                    .background(getBackgrounds)
                     .scrollContentBackground(.hidden)
+                    .background{ backgroundImage() }
                     .toolbarBackground(.hidden, for: .navigationBar)
                     .navigationTitle("Expenses")
                     .toolbar {
@@ -58,15 +65,14 @@ struct ExpensesView: View {
                         }
                     }
                 }
-                .transition(.move(edge: .trailing))
             } else {
                 VStack {
                     Greeting()
+                        .frame(maxWidth: .infinity, maxHeight: .infinity)
+                        .background{ BackgroundMove() }
                         .onTapGesture {
                             self.showSheet = true
                         }
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background(getBackgrounds)
                 }
                 .transition(.move(edge: .leading))
             }
