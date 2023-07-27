@@ -71,6 +71,7 @@ struct AddView: View {
                     }
                     .padding(.top, 90)
                 }
+                .modifier(CustomFont(font: .body))
                 .padding(.horizontal)
                 .padding(.top, 30)
             }
@@ -84,6 +85,7 @@ struct AddView: View {
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {
         AddView(expenses: ExpensesViewModel())
+            .preferredColorScheme(.dark)
     }
 }
 

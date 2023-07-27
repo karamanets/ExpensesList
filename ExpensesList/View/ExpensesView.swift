@@ -31,13 +31,14 @@ struct ExpensesView: View {
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(item.name)
-                                        .font(.system(size: 22) .italic() .bold())
+                                        .modifier(CustomFont(font: .title2))
+                                     
                                     Text(item.type)
-                                        .font(.system(size: 16) .lowercaseSmallCaps())
+                                        .modifier(CustomFont(font: .caption))
                                 }
                                 Spacer()
                                 Text("\(item.amount)")
-                                    .font(.system(size: 22) .italic() .bold())
+                                    .modifier(CustomFont(font: .title2))
                             }
                         }
                         
@@ -52,6 +53,7 @@ struct ExpensesView: View {
                         .listRowSeparatorTint(Color.red)
                         
                     }
+                    .environment(\.defaultMinListRowHeight, 40)
                     .scrollContentBackground(.hidden)
                     .background{ backgroundImage() }
                     .toolbarBackground(.hidden, for: .navigationBar)
@@ -85,6 +87,7 @@ struct ExpensesView: View {
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
         ExpensesView()
+            .preferredColorScheme(.dark)
     }
 }
 

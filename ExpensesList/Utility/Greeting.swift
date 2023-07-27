@@ -17,7 +17,7 @@ struct Greeting: View {
         ZStack {
             Text("Add Expense")
                 .foregroundColor(.white)
-                .font(.system(size: 33 , weight: .bold))
+                .modifier(CustomFont(font: .title))
                 .shadow(color: .purple, radius: shadow3, x: 3, y: 3)
                 .shadow(color: .purple, radius: 4, x: -3, y: -3)
                 .shadow(color: .purple, radius: shadow3, x: shadow1, y: shadow2)

@@ -16,6 +16,8 @@
 		2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D4D298EA5A0001DFDC8 /* ExpensesModel.swift */; };
 		2C663D51298EA817001DFDC8 /* TextFieldModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C663D50298EA817001DFDC8 /* TextFieldModifier.swift */; };
 		2C6FE71F29C743EF00ED98B4 /* Greeting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C6FE71E29C743EF00ED98B4 /* Greeting.swift */; };
+		2C82B5F32A6E5754005AA96E /* Lugrasimo-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2C82B5F22A6E56DF005AA96E /* Lugrasimo-Regular.ttf */; };
+		2C82B5FB2A6E5F29005AA96E /* Modifiers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C82B5FA2A6E5F29005AA96E /* Modifiers.swift */; };
 		2C92724929AFAE1A004E64BB /* AddViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724829AFAE1A004E64BB /* AddViewModel.swift */; };
 		2C92724B29AFAE43004E64BB /* AddModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C92724A29AFAE43004E64BB /* AddModel.swift */; };
 		2CB4140E2959DAF4009B0D13 /* ExpensesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */; };
@@ -35,6 +37,8 @@
 		2C663D50298EA817001DFDC8 /* TextFieldModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldModifier.swift; sourceTree = "<group>"; };
 		2C663D53298EA98E001DFDC8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2C6FE71E29C743EF00ED98B4 /* Greeting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Greeting.swift; sourceTree = "<group>"; };
+		2C82B5F22A6E56DF005AA96E /* Lugrasimo-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lugrasimo-Regular.ttf"; sourceTree = "<group>"; };
+		2C82B5FA2A6E5F29005AA96E /* Modifiers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Modifiers.swift; sourceTree = "<group>"; };
 		2C92724829AFAE1A004E64BB /* AddViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewModel.swift; sourceTree = "<group>"; };
 		2C92724A29AFAE43004E64BB /* AddModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddModel.swift; sourceTree = "<group>"; };
 		2CB4140D2959DAF4009B0D13 /* ExpensesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesViewModel.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 		2C3BBD882A39E6540025192D /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				2C82B5F12A6E56BE005AA96E /* Font */,
 				2C64B3B3295032E700E8C770 /* Preview Content */,
 				2C663D53298EA98E001DFDC8 /* Info.plist */,
 				2C64B3B1295032E700E8C770 /* Assets.xcassets */,
@@ -84,7 +89,7 @@
 			isa = PBXGroup;
 			children = (
 				2C3BBD882A39E6540025192D /* Source */,
-				2C663D52298EA81C001DFDC8 /* Components */,
+				2C663D52298EA81C001DFDC8 /* Utility */,
 				2C663D4B298EA536001DFDC8 /* View */,
 				2C663D4C298EA574001DFDC8 /* ViewModel */,
 				2C663D4F298EA619001DFDC8 /* Model */,
@@ -127,7 +132,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		2C663D52298EA81C001DFDC8 /* Components */ = {
+		2C663D52298EA81C001DFDC8 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
 				2C227BB129C6253700EE1822 /* CustomAnimationView.swift */,
@@ -135,8 +140,17 @@
 				2C6FE71E29C743EF00ED98B4 /* Greeting.swift */,
 				2CDCF0E129C7A0B200914E5B /* CustomPath.swift */,
 				2CDCF0DF29C7A04600914E5B /* Background.swift */,
+				2C82B5FA2A6E5F29005AA96E /* Modifiers.swift */,
 			);
-			path = Components;
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		2C82B5F12A6E56BE005AA96E /* Font */ = {
+			isa = PBXGroup;
+			children = (
+				2C82B5F22A6E56DF005AA96E /* Lugrasimo-Regular.ttf */,
+			);
+			path = Font;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +212,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2C64B3B5295032E700E8C770 /* Preview Assets.xcassets in Resources */,
+				2C82B5F32A6E5754005AA96E /* Lugrasimo-Regular.ttf in Resources */,
 				2C64B3B2295032E700E8C770 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -221,6 +236,7 @@
 				2C663D4E298EA5A0001DFDC8 /* ExpensesModel.swift in Sources */,
 				2C6FE71F29C743EF00ED98B4 /* Greeting.swift in Sources */,
 				2CB4140E2959DAF4009B0D13 /* ExpensesViewModel.swift in Sources */,
+				2C82B5FB2A6E5F29005AA96E /* Modifiers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
