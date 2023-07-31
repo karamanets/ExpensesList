@@ -16,7 +16,7 @@ struct CustomFont: ViewModifier {
     func body(content: Content) -> some View {
         content
             .font(.custom(fontName, size: fontSize, relativeTo: font))
-            .shadow(color: .blue, radius: 2, x: 2, y: 2)
+            .shadow(color: .black, radius: 2, x: 2, y: 2)
     }
     
     private var fontSize: CGFloat {

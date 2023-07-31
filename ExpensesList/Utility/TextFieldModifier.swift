@@ -15,7 +15,7 @@ struct TextFieldModifier: ViewModifier {
         content
             .padding(.all, padding)
             .padding(.horizontal)
-            .background(.purple)
+            .background(.purple.opacity(0.5))
             .blendMode(.hardLight)
             .cornerRadius(15)
     }

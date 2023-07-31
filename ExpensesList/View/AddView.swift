@@ -7,6 +7,9 @@
 
 import SwiftUI
 
+//1 add redact expenses
+//2 add Date
+
 struct AddView: View {
     
     @StateObject var vm = AddViewModel()
@@ -16,60 +19,26 @@ struct AddView: View {
     @Environment(\.dismiss) var  goBack
     
     var body: some View {
-        VStack{
+        Group {
             ScrollView {
                 VStack (spacing: 16) {
-                    VStack {
-                        Text("Enter the name")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        TextField("📜", text: $vm.expense.name)
-                            .modifier(TextFieldModifier(padding: 15))
-                    }
-                    VStack {
-                        Text("Enter the type")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        Picker("", selection: $vm.expense.type) {
-                            ForEach(vm.expense.types, id: \.self) {
-                                Text($0)
-                            }
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .modifier(TextFieldModifier(padding: 10))
-                    }
-                    VStack {
-                        Text("Enter the amount")
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                        
-                        TextField("💸", text: $vm.expense.amount)
-                            .modifier(TextFieldModifier(padding: 15))
-                    }
+                    
+                    textFieldName()
+                   
+                    textFieldType()
+                    
+                    textFieldAmount()
+                    
                     ZStack {
-                        Button {
-                            if let actualAmount = Int(vm.expense.amount) {
-                                let item = ExpensesModel(name: vm.expense.name,
-                                                         type: vm.expense.type,
-                                                         amount: actualAmount)
-                                self.expenses.items.append(item)
-                                goBack()
-                            }
-                        } label: {
-                            ZStack {
-                                Circle()
-                                    .fill(Color.purple)
-                                    .frame(width: 70, height: 70)
-                                    .overlay {
-                                        Circle()
-                                            .stroke(Color.pink, lineWidth: 0.6)
-                                    }
-                                Text("Save")
-                                    .foregroundColor(.black)
-                            }
-                        }
                         CustomAnimationView()
+                        Button {
+                            addExpenses()
+                        } label: {
+                            saveButtonView()
+                        }
+                        
                     }
-                    .padding(.top, 90)
+                    .padding(.top, 50)
                 }
                 .modifier(CustomFont(font: .body))
                 .padding(.horizontal)
@@ -78,9 +47,75 @@ struct AddView: View {
         }
         .scrollContentBackground(.hidden)
         .toolbarBackground(.hidden, for: .navigationBar)
-        .background{ BackgroundMove() }
+        .background{ backgroundImage() }
     }
 }
+
+//MARK: - Component
+private extension AddView {
+    
+    func addExpenses() {
+        if let actualAmount = Int(vm.expense.amount), !vm.expense.name.isEmpty {
+            let item = ExpensesModel(name: vm.expense.name,
+                                     type: vm.expense.type,
+                                     amount: actualAmount)
+            self.expenses.items.append(item)
+            goBack()
+        }
+    }
+    
+    func saveButtonView() -> some View {
+        ZStack {
+            Circle()
+                .fill(Color.purple)
+                .frame(width: 50, height: 50)
+                .overlay {
+                    Circle()
+                        .stroke(Color.pink, lineWidth: 0.6)
+                }
+            Text("Save")
+                .foregroundColor(.black)
+        }
+    }
+    
+    func textFieldName() -> some View {
+        VStack {
+            Text("Enter the name")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            TextField("📜", text: $vm.expense.name)
+                .modifier(TextFieldModifier(padding: 15))
+        }
+    }
+    
+    func textFieldType() -> some View {
+        VStack {
+            Text("Enter the type")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            Picker("", selection: $vm.expense.type) {
+                ForEach(vm.expense.types, id: \.self) {
+                    Text($0)
+                }
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .modifier(TextFieldModifier(padding: 10))
+        }
+    }
+    
+    func textFieldAmount() -> some View {
+        VStack {
+            Text("Enter the amount")
+                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            TextField("💸", text: $vm.expense.amount)
+                .modifier(TextFieldModifier(padding: 15))
+                .keyboardType(.numbersAndPunctuation)
+        }
+    }
+    
+}
+
 //                     🔱
 struct AddView_Previews: PreviewProvider {
     static var previews: some View {

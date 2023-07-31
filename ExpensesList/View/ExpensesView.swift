@@ -7,11 +7,6 @@
 
 import SwiftUI
 
-//MARK: Tasks
-//1 STOP moving View when open keyboard
-//2 Change text style and icon style
-//3 Add adding to able move
-
 struct ExpensesView: View {
     
     @StateObject var expenses  = ExpensesViewModel()
@@ -19,7 +14,7 @@ struct ExpensesView: View {
     @State private var showSheet = false
     
     private var listIsEmpty: Bool {
-            expenses.items.isEmpty ? false : true
+        expenses.items.isEmpty ? false : true
     }
     
     var body: some View {
@@ -27,12 +22,12 @@ struct ExpensesView: View {
             if listIsEmpty {
                 NavigationStack {
                     List {
-                        ForEach(expenses.items.reversed()) { item in
+                        ForEach(expenses.items) { item in
                             HStack {
                                 VStack(alignment: .leading) {
                                     Text(item.name)
                                         .modifier(CustomFont(font: .title2))
-                                     
+                                    
                                     Text(item.type)
                                         .modifier(CustomFont(font: .caption))
                                 }
@@ -41,48 +36,80 @@ struct ExpensesView: View {
                                     .modifier(CustomFont(font: .title2))
                             }
                         }
-                        
-                        .onDelete { item in
-                            let revers = Array(expenses.items.reversed())
-                            let collect = Set(item.map { revers[$0].id })
-                            self.expenses.items.removeAll { collect.contains($0.id) }
-                        }
-                        .listRowBackground(Color.purple.opacity(0.5)
-                            .blendMode(.hardLight)
-                        )
-                        .listRowSeparatorTint(Color.red)
-                        
+                        .onDelete(perform: deleteExpenses )
+                        .onMove(perform: moveExpenses )
+                        .listRowBackground(Color.purple.opacity(0.4))
+                        .listRowSeparatorTint(Color.red.opacity(0.4))
                     }
                     .environment(\.defaultMinListRowHeight, 40)
                     .scrollContentBackground(.hidden)
                     .background{ backgroundImage() }
                     .toolbarBackground(.hidden, for: .navigationBar)
                     .navigationTitle("Expenses")
-                    .toolbar {
-                        Button {
-                            self.showSheet = true
-                        } label: {
-                            Image(systemName: "doc.text")
-                                .font(.title2 .bold())
-                        }
-                    }
+                    .safeAreaInset(edge: .bottom, alignment: .trailing, spacing: .zero, content: {
+                        addExpensesButton()
+                    })
+                    .toolbar { aditButton() }
                 }
             } else {
-                VStack {
-                    Greeting()
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                        .background{ BackgroundMove() }
-                        .onTapGesture {
-                            self.showSheet = true
-                        }
-                }
-                .transition(.move(edge: .leading))
+                greetingView()
+                    .transition(.move(edge: .leading))
             }
         }
         .sheet(isPresented: $showSheet) { AddView(expenses: self.expenses) }
         .animation(.spring(), value: listIsEmpty)
     }
 }
+
+//MARK: - Component
+private extension ExpensesView {
+    
+    func aditButton() -> some View {
+        EditButton()
+            .modifier(CustomFont(font: .body))
+            .foregroundStyle(LinearGradient(colors: [.pink, .purple],
+                                            startPoint: .topLeading,
+                                            endPoint: .bottomTrailing))
+    }
+    
+    func addExpensesButton() -> some View {
+        Button {
+            self.showSheet = true
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(Color.purple.opacity(0.5))
+                    .frame(width: 60, height: 60)
+                
+                Image(systemName: "plus")
+                    .font(.title2 .bold())
+                    .foregroundColor(.white)
+            }
+            .shadow(color: .black, radius: 2, x: 1, y: 1)
+            .padding()
+        }
+    }
+    
+    func greetingView() -> some View {
+        VStack {
+            Greeting()
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .background{ BackgroundMove() }
+                .onTapGesture {
+                    self.showSheet = true
+                }
+        }
+    }
+    
+    func deleteExpenses(index: IndexSet) {
+        expenses.items.remove(atOffsets: index)
+    }
+    
+    func moveExpenses(from: IndexSet, to: Int) {
+        expenses.items.move(fromOffsets: from, toOffset: to)
+    }
+}
+
 //                    🔱
 struct Main_Previews: PreviewProvider {
     static var previews: some View {
