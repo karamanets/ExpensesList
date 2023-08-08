@@ -58,7 +58,8 @@ private extension AddView {
         if let actualAmount = Int(vm.expense.amount), !vm.expense.name.isEmpty {
             let item = ExpensesModel(name: vm.expense.name,
                                      type: vm.expense.type,
-                                     amount: actualAmount)
+                                     amount: actualAmount,
+                                     dataCreated: .now)
             self.expenses.items.append(item)
             goBack()
         }

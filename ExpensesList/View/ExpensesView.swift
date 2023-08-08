@@ -22,19 +22,8 @@ struct ExpensesView: View {
             if listIsEmpty {
                 NavigationStack {
                     List {
-                        ForEach(expenses.items) { item in
-                            HStack {
-                                VStack(alignment: .leading) {
-                                    Text(item.name)
-                                        .modifier(CustomFont(font: .title2))
-                                    
-                                    Text(item.type)
-                                        .modifier(CustomFont(font: .caption))
-                                }
-                                Spacer()
-                                Text("\(item.amount)")
-                                    .modifier(CustomFont(font: .title2))
-                            }
+                        ForEach(expenses.items) { expenses in
+                            ExpensesRow(expenses: expenses)
                         }
                         .onDelete(perform: deleteExpenses )
                         .onMove(perform: moveExpenses )

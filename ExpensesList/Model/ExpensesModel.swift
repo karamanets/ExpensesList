@@ -10,10 +10,12 @@ import Foundation
 
 struct ExpensesModel: Identifiable, Codable {
     
-    var id      = UUID()
-    var name    : String
-    var type    : String
-    var amount  : Int
+    var id         = UUID()
+    let name       : String
+    let type       : String
+    let amount     : Int
+    let dataCreated: Date
+    
 }
 
 
