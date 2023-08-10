@@ -6,10 +6,6 @@
 <!--- leading for body ---> 
 <h5 align="lefth">
 
-
-____
-  
-  
 <!--- GIF iPnone ---> 
 <p><img align="right" src="https://github.com/karamanets/ExpensesList/blob/main/icons/ExpensesGIF.gif" width="300" height="600" /></p>
   
